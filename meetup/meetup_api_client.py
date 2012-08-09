@@ -34,6 +34,7 @@ except:
 
 GROUPS_URI = 'groups'
 EVENTS_URI = 'events'
+OPEN_EVENTS_URI = '2/open_events'
 CITIES_URI = 'cities'
 TOPICS_URI = 'topics'
 PHOTOS_URI = 'photos'
@@ -115,7 +116,7 @@ class Meetup(object):
         return opener.open(url, params).read()
 
 """Add read methods to Meetup class dynamically (avoiding boilerplate)"""
-READ_METHODS = ['groups', 'events', 'topics', 'cities', 'members', 'rsvps',
+READ_METHODS = ['groups', 'events', 'open_events', 'topics', 'cities', 'members', 'rsvps',
                 'photos', 'comments', 'activity']
 def _generate_read_method(name):
     def read_method(self, **args):
@@ -237,6 +238,7 @@ class API_Response(object):
          self.meta = json['meta']
          uriclasses = {GROUPS_URI:Group,
                        EVENTS_URI:Event,
+		       OPEN_EVENTS_URI:Event,
                        TOPICS_URI:Topic,
                        CITIES_URI:City, 
                        MEMBERS_URI:Member,
