@@ -14,7 +14,7 @@ setup(
     url='https://github.com/dwightgunning/meetup-api',
     long_description=open('README.md', 'r').read(),
     packages=[
-        'meetup-api',
+        'meetup',
     ],
     requires=[],
     install_requires=[],
